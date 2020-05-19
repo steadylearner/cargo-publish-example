@@ -85,6 +85,14 @@ fn main() {
 
 <br>
 
+## How to test it
+
+Install cargo-exapnd if you want to test how macros from this package expands. Otherwise, delete tests/exapnd and use $cargo test.
+
+```console
+$git clone git@github.com:steadylearner/publish.git && cargo install cargo-expand && cargo test
+```
+
 #### License
 
 <sup>

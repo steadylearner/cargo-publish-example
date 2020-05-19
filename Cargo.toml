@@ -1,9 +1,13 @@
 [package]
 name = "publish"
-version = "0.1.0"
-authors = ["steadylearner <32325099+steadylearner@users.noreply.github.com>"]
+version = "0.0.0"
+authors = ["Steadylearner(www.steadylearner.com) <32325099+steadylearner@users.noreply.github.com>"]
 edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Reuse fields in Struct and Enum with functional macros."
+repository = "https://github.com/steadylearner/publish"
+documentation = "https://docs.rs/publish"
+categories = ["rust-macros", "rust-patterns", "struct", "enum"]
+readme = "README.md"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[dev-dependencies]

@@ -77,7 +77,7 @@ fn main() {
 
 - When you use private_struct! and private_struct!, you can't use pub keyword in it. [Read this if you want more information.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
 
-- nested_macro! is required to use the other macros provied from this crate. It internally helps you to cutomize struct and enum name.
+- `nested_macro!` is required to use the other macros provied from this crate. It internally helps you to cutomize struct and enum name.
 
 ```rust
 macro_rules! nested_macro {

@@ -11,3 +11,5 @@ categories = ["rust-macros", "rust-patterns", "struct", "enum"]
 readme = "README.md"
 
 [dev-dependencies]
+macrotest = "1.0.2"
+

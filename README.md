@@ -1,7 +1,7 @@
 Reuse(Struct, Enum)
 =============
 
-This library provides convenient functional macros to reuse fields with Struct and Enum.
+It provides functional macros to reuse fields with Struct and Enum.
 
 <br>
 
@@ -16,15 +16,16 @@ use publish::{
 };
 
 public_struct!(
+    // pub is required before 'struct' when you use public_struct!
     pub struct MessageBase {
         pub text: String
+        // text: String // pub is optional in fields.
     }
 );
 
-MessageBase!(); // You have to call it to use.
+MessageBase!(); // You have to call it to use the struct.
 
 fn main() {
-     // You have to call it to use.
     let message = MessageBase {
         text: "First Message".into(),
     };
@@ -41,13 +42,14 @@ use publish::{
 };
 
 public_enum!(
+    // pub is required before 'enum' when you use public_enum!
     pub enum WebEventBase {
         PageLoad,
         PageUnload, // , here is required.
     }
 );
 
-WebEventBase!(); // You have to call it to use.
+WebEventBase!(); // You have to call it to use the enum.
 
 fn inspect(event: WebEventBase) {
     match event {
@@ -69,13 +71,15 @@ fn main() {
 
 ## Details
 
-- The functional macros from this crate will help you to reuse fields in a struct and enum. No real inherit happens. So, you don't need to worry about the relevant problem.
+- The functional macros from this crate will help you to reuse fields in a struct and enum.
+
+- Each structs and enum created from them are completely separated except they have the same fields.
 
 <br>
 
 ## Comparison to attribute macros
 
-[You can do the same with attribute macros from Rust.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you will need to have more dependencies.
+[You can do the same with attribute macros.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you will need to have more dependencies.
 
 [If you want more information, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
 
@@ -98,8 +102,9 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
+* cargo fmt, cargo clippy etc with some script files before publish?
 * documentation style //! at lib.rs similar to README.md
 * /// and unit tests at each files in src/
-* Include Travis CI.
-* Test a publish with real crate name and code.
 * Include dev dependencies to expand and test macros?
+* Include Travis CI.(How to use cargo install cargo-expand in it to use macrotest?)
+* Test it with real crate name and code instead.

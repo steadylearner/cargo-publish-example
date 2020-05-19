@@ -1,4 +1,4 @@
-publish(Struct, Enum)
+Reuse(Struct, Enum)
 =============
 
 This library provides a convenient functional macros to reuse fields with Struct and Enum.
@@ -7,16 +7,32 @@ This library provides a convenient functional macros to reuse fields with Struct
 
 ## Example
 
-```rust
-use publish::struct, enum;
+### Struct
 
-struct!()
-enum!()
+```rust
+use publish::{
+    public_struct, 
+};
+
+public_struct!()
 
 fn main() {
-  
-}
 
+}
+```
+
+### Enum
+
+```rust
+use publish::{
+    public_enum,
+};
+
+public_enum!()
+
+fn main() {
+
+}
 ```
 
 <br>
@@ -27,9 +43,11 @@ fn main() {
 
 <br>
 
-## Comparison to attribute
+## Comparison to attribute macros
 
-[You can do the same with attribute features from Rust.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you will need to have more dependencies.
+[You can do the same with attribute macros from Rust.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you will need to have more dependencies.
+
+[If you want more information, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
 
 <br>
 

@@ -1,7 +1,7 @@
 Reuse(Struct, Enum)
 =============
 
-This library provides a convenient functional macros to reuse fields with Struct and Enum.
+This library provides convenient functional macros to reuse fields with Struct and Enum.
 
 <br>
 
@@ -11,13 +11,24 @@ This library provides a convenient functional macros to reuse fields with Struct
 
 ```rust
 use publish::{
-    public_struct, 
+    nested_macro,
+    public_struct,
 };
 
-public_struct!()
+public_struct!(
+    pub struct MessageBase {
+        pub text: String
+    }
+);
+
+MessageBase!(); // You have to call it to use.
 
 fn main() {
-
+     // You have to call it to use.
+    let message = MessageBase {
+        text: "First Message".into(),
+    };
+    println!("{}", &message.text);
 }
 ```
 
@@ -25,13 +36,32 @@ fn main() {
 
 ```rust
 use publish::{
+    nested_macro,
     public_enum,
 };
 
-public_enum!()
+public_enum!(
+    pub enum WebEventBase {
+        PageLoad,
+        PageUnload, // , here is required.
+    }
+);
+
+WebEventBase!(); // You have to call it to use.
+
+fn inspect(event: WebEventBase) {
+    match event {
+        WebEventBase ::PageLoad => println!("page loaded"),
+        WebEventBase ::PageUnload => println!("page unloaded"),
+    }
+}
 
 fn main() {
+    let load    = WebEventBase::PageLoad;
+    let unload  = WebEventBase::PageUnload;
 
+    inspect(load);
+    inspect(unload);
 }
 ```
 
@@ -65,3 +95,11 @@ Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
 be dual licensed as above, without any additional terms or conditions.
 </sub>
+
+#### What left
+
+* documentation style //! at lib.rs similar to README.md
+* /// and unit tests at each files in src/
+* Include Travis CI.
+* Test a publish with real crate name and code.
+* Include dev dependencies to expand and test macros?

@@ -1,7 +1,10 @@
-// #[cfg(test)]
-// mod tests {
-//     #[test]
-//     fn it_works() {
-//         assert_eq!(2 + 2, 4);
-//     }
-// }
+mod r#struct;
+mod r#enum;
+
+#[macro_export]
+macro_rules! nested_macro {
+    ($($body:tt)*) => {
+        macro_rules! __nested_macro { $($body)+ }
+        __nested_macro!($);
+    }
+}

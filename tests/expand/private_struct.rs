@@ -7,9 +7,10 @@ pub fn main() {
     private_struct!(
         struct MessageBase {
             text: String
+            // pub text: String // It will fail.
         }
     );
 
-    MessageBase!(); // You have to call it to use.
+    MessageBase!();
 }
 

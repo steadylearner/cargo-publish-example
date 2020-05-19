@@ -73,13 +73,26 @@ fn main() {
 
 - The functional macros from this crate will help you to reuse fields in a struct and enum.
 
-- Each structs and enum created from them are completely separated except they have the same fields.
+- Each struct and enum created from them are completely unrelevant except they have the same fields you define.
+
+- When you use private_struct! and private_struct!, you can't use pub keyword in it. [Read this if you want more information.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
+
+- nested_macros! is required to use the other macros provied from this crate. It internally helps you to cutomize struct and enum name.
+
+```rust
+macro_rules! nested_macro {
+    ($($body:tt)*) => {
+        macro_rules! __nested_macro { $($body)+ }
+        __nested_macro!($);
+    }
+}
+```
 
 <br>
 
 ## Comparison to attribute macros
 
-[You can do the same with attribute macros.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you will need to have more dependencies.
+[You can reuse the fields with attribute macros.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you need to install more dependencies.
 
 [If you want more information, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
 
@@ -87,10 +100,12 @@ fn main() {
 
 ## How to test it
 
-Install cargo-exapnd if you want to test how macros from this package expands. Otherwise, delete tests/exapnd and use $cargo test.
+If you want to test how macros from this package expands, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first.
+
+Otherwise, delete tests/expand and use `$cargo test`.
 
 ```console
-$git clone git@github.com:steadylearner/publish.git && cargo install cargo-expand && cargo test
+$git clone git@github.com:steadylearner/publish.git && rustup component add rustfmt && cargo install cargo-expand && cargo test
 ```
 
 #### License
@@ -110,9 +125,8 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
-* cargo fmt, cargo clippy etc with some script files before publish?
+* cargo fmt, cargo clippy etc with some script files before publish? Include some commands to help the development.
 * documentation style //! at lib.rs similar to README.md
 * /// and unit tests at each files in src/
-* Include dev dependencies to expand and test macros?
 * Include Travis CI.(How to use cargo install cargo-expand in it to use macrotest?)
 * Test it with real crate name and code instead.

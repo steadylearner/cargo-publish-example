@@ -7,11 +7,11 @@ pub fn main() {
     private_enum!(
         enum WebEventBase {
             PageLoad,
-            PageUnload, // , here is required.
+            PageUnload,
         }
     );
 
-    WebEventBase!(); // You have to call it to use.
+    WebEventBase!();
 }
 
 

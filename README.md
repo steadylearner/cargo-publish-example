@@ -109,7 +109,7 @@ If you want to test that pass, `$cargo test pass`.
 
 If you want to tests that fail, install [trybuild](https://github.com/dtolnay/trybuild) first. Then, use `$cargo test fail`.
 
-If you want to test how macros from this package expand, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first. Then, use `$cargo test macrotest`.
+If you want to test how macros from this package expand, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first. Then, use `$cargo test macros`.
 
 #### License
 

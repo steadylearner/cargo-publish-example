@@ -1,7 +1,7 @@
 use macrotest::expand;
 
-// $cargo test macrotest
+// $cargo test macros
 #[test]
-pub fn macrotest() {
+pub fn macros() {
     expand("tests/expand/*.rs");
 }

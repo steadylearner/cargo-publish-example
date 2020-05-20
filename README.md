@@ -98,9 +98,9 @@ macro_rules! nested_macro {
 
 ## Comparison with attribute macros
 
-[You can reuse the fields with attribute macros also.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you need to install more dependencies.
+- [You can reuse the fields with attribute macros also.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you need to install more dependencies.
 
-[If you want more, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
+- [If you want more, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
 
 <br>
 
@@ -119,9 +119,7 @@ If you want to see how macros from this package expand, use `$cargo test macros`
 $rustup component add rustfmt && cargo install cargo-expand
 ```
 
-[macrotest] is based on [trybuild]. It make the tests recompile everytime and take very long if you would test them in a single command.
-
-That is why there are separate test commands to save your time.
+[macrotest] is based on [trybuild]. It make the test take very long time to recompile everytime. That is why there are separate test commands to save your time.
 
 #### License
 
@@ -140,7 +138,7 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
-* [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) etc with some script files before publish? Include some commands to help the development. Include Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/?)
+* [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) with Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
 
 * documentation style //! at lib.rs similar to README.md. /// and unit tests at each files in src/
 

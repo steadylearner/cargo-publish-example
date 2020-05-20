@@ -1,7 +1,15 @@
-Reuse(Struct, Enum)
+[trybuild]: https://github.com/dtolnay/trybuild
+[macrotest]: https://github.com/eupn/macrotest
+
+reuse(Struct, Enum)
 =============
 
-It provides functional macros to reuse fields with Struct and Enum.
+It provides functional macros to reuse fields with [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).
+
+```toml
+[dependencies]
+publish = "0.0.0"
+```
 
 <br>
 
@@ -21,7 +29,7 @@ public_struct!(
         pub text: String
         // text: String // pub is optional in fields.
     }
-);
+); // It is lazy. Nothing is made yet.
 
 MessageBase!(); // You have to call it to use the struct.
 
@@ -47,7 +55,7 @@ public_enum!(
         PageLoad,
         PageUnload, // , here is required if you want to extend the fields later.
     }
-);
+); // It is lazy. Nothing is made yet.
 
 WebEventBase!(); // You have to call it to use the enum.
 
@@ -71,13 +79,11 @@ fn main() {
 
 ## Details
 
-- The functional macros from this crate will help you to reuse fields in a struct and enum.
-
 - Each struct and enum created from them are completely unrelevant except they have the same fields you define.
 
-- When you use private_struct! and private_struct!, you can't use pub keyword in it. [Read this if you want more information.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
+- When you use `private_struct!` and `private_enum!`, you can't use pub keyword in it and others use them. [It wouldn't be logical if private struct or private enum can have public fields at all.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
 
-- `nested_macro!` is required to use the other macros from this crate. It internally helps you to cutomize struct and enum name.
+- `nested_macro!` is required to use the other macros from this crate. It helps the macros created from this crate to cutomize name etc.
 
 ```rust
 macro_rules! nested_macro {
@@ -90,26 +96,32 @@ macro_rules! nested_macro {
 
 <br>
 
-## Comparison to attribute macros
+## Comparison with attribute macros
 
-[You can reuse the fields with attribute macros.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you need to install more dependencies.
+[You can reuse the fields with attribute macros also.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/macro/attribute) But, you need to install more dependencies.
 
-[If you want more information, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
+[If you want more, please read the official documenation about procedural macros.](https://doc.rust-lang.org/reference/procedural-macros.html#attribute-macros)
 
 <br>
 
 ## How to test it
 
 ```console
-$rustup component add rustfmt && cargo install cargo-expand
 $git clone git@github.com:steadylearner/publish.git && cargo test pass
 ```
 
-If you want to test that pass, `$cargo test pass`.
+1. `$cargo test pass` to run passing tests.
+2. `$cargo test fail` to run failing tests. You need to install[trybuild] first.
 
-If you want to tests that fail, install [trybuild](https://github.com/dtolnay/trybuild) first. Then, use `$cargo test fail`.
+If you want to see how macros from this package expand, use `$cargo test macros`. You need to install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) to use it.
 
-If you want to test how macros from this package expand, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first. Then, use `$cargo test macros`.
+```console
+$rustup component add rustfmt && cargo install cargo-expand
+```
+
+[macrotest] is based on [trybuild]. It make the tests recompile everytime and take very long if you would test them in a single command.
+
+That is why there are separate test commands to save your time.
 
 #### License
 

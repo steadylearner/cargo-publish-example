@@ -1,10 +1,10 @@
 [trybuild]: https://github.com/dtolnay/trybuild
 [macrotest]: https://github.com/eupn/macrotest
 
-reuse(Struct, Enum)
+Reuse(Struct, Enum)
 =============
 
-It provides functional macros to reuse fields with [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).
+It provides functional macros to reuse fields for [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).
 
 ```toml
 [dependencies]
@@ -81,9 +81,9 @@ fn main() {
 
 - Each struct and enum created from them are completely unrelevant except they have the same fields you define.
 
-- When you use `private_struct!` and `private_enum!`, you can't use pub keyword in it and others use them. [It wouldn't be logical if private struct or private enum can have public fields at all.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
+- When you use `private_struct!` and `private_enum!`, you can't use pub keyword in it and others use them. [It wouldn't be logical if private struct or private enum can have public fields.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
 
-- `nested_macro!` is required to use the other macros from this crate. It helps the macros created from this crate to cutomize name etc.
+- `nested_macro!` is required to use the other macros from this crate. It is used to make a macro that creates other macros.
 
 ```rust
 macro_rules! nested_macro {
@@ -119,7 +119,9 @@ If you want to see how macros from this package expand, use `$cargo test macros`
 $rustup component add rustfmt && cargo install cargo-expand
 ```
 
-[macrotest] is based on [trybuild]. It make the test take very long time to recompile everytime. That is why there are separate test commands to save your time.
+[macrotest] is based on [trybuild]. They are not that compatible to test with a single command. It make the test to redownload the dependendencies and recompile everytime.
+
+For that reason, there are commands to test them separately.
 
 #### License
 
@@ -138,8 +140,10 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
-* [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) with Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
+* Read them. https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html and https://benjamincongdon.me/blog/2018/08/22/Live-Refreshing-Cargo-Docs/
 
-* documentation style //! at lib.rs similar to README.md. /// and unit tests at each files in src/
+* Then, write more documenation.
+
+* [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) with Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
 
 * Test it with real crate name and code instead.

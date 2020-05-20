@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 description = "Reuse fields in Struct and Enum with functional macros."
 repository = "https://github.com/steadylearner/publish"
 documentation = "https://docs.rs/publish"
-categories = ["rust-macros", "rust-patterns", "struct", "enum"]
+categories = ["rust-macros", "rust-patterns", "struct", "enum", "code-reuse"]
 readme = "README.md"
 
 [dev-dependencies]

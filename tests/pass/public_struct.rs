@@ -2,12 +2,12 @@
 
 use publish::{
     nested_macro,
-    private_struct,
+    public_struct,
 };
 
-private_struct!(
-    struct MessageBase {
-        text: String
+public_struct!(
+    pub struct MessageBase {
+        pub text: String
     }
 );
 
@@ -15,7 +15,8 @@ MessageBase!(); // You have to call it to use.
 
 // $cargo test -- --nocapture
 #[test]
-fn private_struct() {
+fn pass_public_struct() {
+     // You have to call it to use.
     let message = MessageBase {
         text: "First Message".into(),
     };

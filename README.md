@@ -45,7 +45,7 @@ public_enum!(
     // pub is required before 'enum' when you use public_enum!
     pub enum WebEventBase {
         PageLoad,
-        PageUnload, // , here is required.
+        PageUnload, // , here is required if you want to extend the fields later.
     }
 );
 
@@ -77,7 +77,7 @@ fn main() {
 
 - When you use private_struct! and private_struct!, you can't use pub keyword in it. [Read this if you want more information.](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#making-structs-and-enums-public)
 
-- `nested_macro!` is required to use the other macros provied from this crate. It internally helps you to cutomize struct and enum name.
+- `nested_macro!` is required to use the other macros from this crate. It internally helps you to cutomize struct and enum name.
 
 ```rust
 macro_rules! nested_macro {
@@ -100,14 +100,16 @@ macro_rules! nested_macro {
 
 ## How to test it
 
-If you want to test how macros from this package expands, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first.
-
-Otherwise, delete tests/expand and use `$cargo test`.
-
 ```console
 $rustup component add rustfmt && cargo install cargo-expand
-$git clone git@github.com:steadylearner/publish.git && cargo test
+$git clone git@github.com:steadylearner/publish.git && cargo test pass
 ```
+
+If you want to test that pass, `$cargo test pass`.
+
+If you want to tests that fail, install [trybuild](https://github.com/dtolnay/trybuild) first. Then, use `$cargo test fail`.
+
+If you want to test how macros from this package expand, install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) first. Then, use `$cargo test macrotest`.
 
 #### License
 

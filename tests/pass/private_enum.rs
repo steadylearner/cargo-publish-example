@@ -21,7 +21,7 @@ fn inspect(event: WebEventBase) {
 
 // $cargo test -- --nocapture
 #[test]
-fn private_enum() {
+fn pass_private_enum() {
     let load    = WebEventBase::PageLoad;
     let unload  = WebEventBase::PageUnload;
 

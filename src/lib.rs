@@ -1,5 +1,8 @@
-mod r#struct;
+// $cargo expand --ugly
+// $cargo clippy --all-targets --all-features -- -D warnings
+
 mod r#enum;
+mod r#struct;
 
 #[macro_export]
 macro_rules! nested_macro {

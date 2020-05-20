@@ -128,8 +128,8 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
-* cargo fmt, cargo clippy etc with some script files before publish? Include some commands to help the development.
-* Include Travis CI.(How to use cargo install cargo-expand in it to use macrotest?)
-* documentation style //! at lib.rs similar to README.md
-* /// and unit tests at each files in src/
+* [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) etc with some script files before publish? Include some commands to help the development. Include Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/?)
+
+* documentation style //! at lib.rs similar to README.md. /// and unit tests at each files in src/
+
 * Test it with real crate name and code instead.

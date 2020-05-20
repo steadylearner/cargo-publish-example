@@ -1,13 +1,10 @@
 // Move this to unit test and more heavier example here later.
 
-use publish::{
-    nested_macro,
-    private_struct,
-};
+use publish::{nested_macro, private_struct};
 
 private_struct!(
     struct MessageBase {
-        text: String
+        text: String,
     }
 );
 

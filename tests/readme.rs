@@ -1,6 +1,6 @@
 // https://crates.io/crates/doc-comment
 
-#[macro_use] extern crate doc_comment;
+use doc_comment::doctest;
 
 #[test]
 pub fn readme() {

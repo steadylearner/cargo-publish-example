@@ -17,6 +17,7 @@ elif response.startswith("t"):
     cp = cmd.run(f"cargo test pass", check=True, shell=True)
 elif response.startswith("p"):
     cp = cmd.run(f"cargo verify-project", check=True, shell=True)
+    cp = cmd.run(f"cargo test readme", check=True, shell=True)
     # Dry run and login, token etc here?.
 else: # Payload
     response = input(

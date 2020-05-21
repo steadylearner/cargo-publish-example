@@ -16,7 +16,8 @@ elif response.startswith("l"):
 elif response.startswith("t"):
     cp = cmd.run(f"cargo test pass", check=True, shell=True)
 elif response.startswith("p"):
-    pass
+    cp = cmd.run(f"cargo verify-project", check=True, shell=True)
+    # Dry run and login, token etc here?.
 else: # Payload
     response = input(
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")
@@ -37,6 +38,12 @@ else: # Payload
         cp = cmd.run(
             f"cargo test --doc", check=True, shell=True)
 
+# $cargo update to update dependencies.
+# $cargo test -- --test-threads=1 to test a project that involves database mutation etc.
+
+# $cargo verify-project
+# {"success":"true"}
+ 
 # Refer to them.
 # https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html
 

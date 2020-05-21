@@ -13,4 +13,5 @@ readme = "README.md"
 [dev-dependencies]
 macrotest = "1.0.2"
 trybuild = "1.0.27"
+doc-comment = "0.3.3"
 

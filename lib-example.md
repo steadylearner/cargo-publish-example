@@ -41,3 +41,4 @@ for argument in env::args() {
 /// fn foo() {
 /// ```
 
+[macro documentation example.](https://docs.rs/doc-comment/0.3.3/doc_comment/#generic-documentation)

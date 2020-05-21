@@ -1,5 +1,7 @@
 import subprocess as cmd
+from watch import browsersync, withoutbrowsersync
 
+package = "publish" # It should be the same to what defined in Cargo.toml
 response = input(
     "Cargo [f]ormat, [t]est, [d]ocumenation, [p]ublish or [l]int with clippy?\n")
 
@@ -10,17 +12,16 @@ elif response.startswith("t"):
 elif response.startswith("d"):
     response = input(
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")
-    package = "publish" # It should be the same to what defined in Cargo.toml
 
     if response.startswith("w"):
-        cp = cmd.run(f"cargo watch -s 'cargo doc --lib'",
-                     check=True, shell=True)
+        # withoutbrowsersync(package)
+
+        browsersync(package)
+
     elif response.startswith("c"):
         cp = cmd.run(
             f"cargo doc --lib --open", check=True, shell=True)
     elif response.startswith("r"):
-        # Should make it reload with this.
-        # https://benjamincongdon.me/blog/2018/08/22/Live-Refreshing-Cargo-Docs/
         cp = cmd.run(
             f"python -m webbrowser target/doc/{package}/index.html", check=True, shell=True)
     else:
@@ -35,7 +36,6 @@ else:
 
 # Refer to them.
 # https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html
-# https://benjamincongdon.me/blog/2018/08/22/Live-Refreshing-Cargo-Docs/
 
 # https://github.com/steadylearner/Rust-Full-Stack/blob/master/dev.py
 # https://doc.rust-lang.org/cargo/commands/cargo-doc.html

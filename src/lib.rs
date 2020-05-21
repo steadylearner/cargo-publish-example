@@ -13,7 +13,7 @@
 //!
 //! <br>
 //!
-//! ## Examples
+//! ## Example
 //!
 //! ### Struct
 //!
@@ -127,3 +127,5 @@ macro_rules! nested_macro {
 
 // $cargo expand --ugly
 // $cargo clippy --all-targets --all-features -- -D warnings
+
+// 

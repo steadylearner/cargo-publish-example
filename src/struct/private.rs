@@ -1,4 +1,4 @@
-/// Use it to to create, extend and reuse fields in private struct.
+/// Use it to to create, extend and reuse fields from private struct definition.
 ///
 /// # Example
 ///

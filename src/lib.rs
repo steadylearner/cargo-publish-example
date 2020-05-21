@@ -2,7 +2,7 @@
 #![doc(html_logo_url = "https://avatars0.githubusercontent.com/u/32325099?s=460&u=cd848fc83d9739939a4ea2d38108c8bcee199109&v=4")]
 
 #![warn(missing_docs)]
-#![warn(missing_doc_code_examples)]
+// #![warn(missing_doc_code_examples)] // Use it if necessary.
 
 //! [trybuild]: https://github.com/dtolnay/trybuild
 //! [macrotest]: https://github.com/eupn/macrotest
@@ -24,53 +24,54 @@
 //! ### Struct
 //!
 //! ```
-//! # #[macro_use] extern crate publish;
-//! # fn main() {
-//! public_struct!(
-//!     // pub is required before 'struct' when you use public_struct!
-//!     pub struct MessageBase {
-//!         pub text: String
-//!         // text: String // pub is optional in fields.
-//!     }
-//! ); // It is lazy. Nothing is made yet.
+//! #[macro_use] extern crate publish;
 //!
-//! MessageBase!(); // You have to call it to use the struct.
-//! let message = MessageBase {
-//!     text: "First Message".into(),
-//! };
-//! println!("{}", &message.text);
-//! # }
+//! fn main() {
+//!     public_struct!(
+//!         // pub is required before 'struct' when you use public_struct!
+//!         pub struct MessageBase {
+//!             pub text: String
+//!             // text: String // pub is optional in fields.
+//!         }
+//!     ); // It is lazy. Nothing is made yet.
+//!
+//!     MessageBase!(); // You have to call it to use the struct.
+//!     let message = MessageBase {
+//!         text: "First Message".into(),
+//!     };
+//!     println!("{}", &message.text);
+//! }
 //! ```
 //!
 //! ### Enum
 //!
 //! ```
-//! # #[macro_use] extern crate publish;
-//! # fn main() {
-//! public_enum!(
-//!     // pub is required before 'enum' when you use public_enum!
-//!     pub enum WebEventBase {
-//!         PageLoad,
-//!         PageUnload, // , here is required if you want to extend the fields later.
-//!     }
-//! ); // It is lazy. Nothing is made yet.
+//! #[macro_use] extern crate publish;
 //!
-//! WebEventBase!(); // You have to call it to use the enum.
+//! fn main() {
+//!     public_enum!(
+//!         // pub is required before 'enum' when you use public_enum!
+//!         pub enum WebEventBase {
+//!             PageLoad,
+//!             PageUnload, // , here is required if you want to extend the fields later.
+//!         }
+//!     ); // It is lazy. Nothing is made yet.
 //!
-//! fn inspect(event: WebEventBase) {
-//!     match event {
-//!         WebEventBase ::PageLoad => println!("page loaded"),
-//!         WebEventBase ::PageUnload => println!("page unloaded"),
+//!     WebEventBase!(); // You have to call it to use the enum.
+//!
+//!     fn inspect(event: WebEventBase) {
+//!         match event {
+//!             WebEventBase ::PageLoad => println!("page loaded"),
+//!             WebEventBase ::PageUnload => println!("page unloaded"),
+//!         }
 //!     }
+//!
+//!     let load    = WebEventBase::PageLoad;
+//!     let unload  = WebEventBase::PageUnload;
+//!
+//!     inspect(load);
+//!     inspect(unload);
 //! }
-//!
-//! let load    = WebEventBase::PageLoad;
-//! let unload  = WebEventBase::PageUnload;
-//!
-//! inspect(load);
-//! inspect(unload);
-//!
-//! # }
 //! ```
 //!
 //! <br>
@@ -130,6 +131,10 @@ macro_rules! nested_macro {
         __nested_macro!($);
     }
 }
+
+// It will only work with $cargo test --doc or $cargo test
+#[cfg(doctest)]
+doc_comment::doctest!("../README.md"); // If you want it to fail, ../README_FAIL.md
 
 // $cargo expand --ugly
 // $cargo clippy --all-targets --all-features -- -D warnings

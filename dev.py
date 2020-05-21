@@ -1,7 +1,8 @@
 import subprocess as cmd
+
 from watch import (
+    manually_reload_the_doc,
     automatically_reload_the_doc,
-    # manually_reload_the_doc,
 )
 
 package = "publish"  # It should be the same to what defined in Cargo.toml
@@ -17,15 +18,19 @@ elif response.startswith("t"):
     cp = cmd.run(f"cargo test pass", check=True, shell=True)
 elif response.startswith("p"):
     cp = cmd.run(f"cargo verify-project", check=True, shell=True)
-    cp = cmd.run(f"cargo test readme", check=True, shell=True)
     # Dry run and login, token etc here?.
 else: # Payload
     response = input(
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")
 
     if response.startswith("w"):
-        automatically_reload_the_doc(package)
-        # manually_reload_the_doc(package)
+        response = input(
+            "[a]utomatically reload or [m]anually?\n")
+        if response.startswith("a"):
+            # Use this when your machine is fast enough.
+            automatically_reload_the_doc(package)
+        else:
+            manually_reload_the_doc(package)
 
     elif response.startswith("c"):
         cp = cmd.run(

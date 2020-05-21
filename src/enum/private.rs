@@ -1,4 +1,4 @@
-/// Use it to to create, extend and reuse fields in private enum.
+/// Use it to to create, extend and reuse fields from private enum definition.
 ///
 /// # Example
 /// 

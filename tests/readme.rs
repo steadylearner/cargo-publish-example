@@ -3,7 +3,7 @@
 use doc_comment::doctest;
 
 #[test]
-pub fn readme() {
+fn readme() {
+    doctest!("../README.md");
     doctest!("../README_FAIL.md");
-    // doctest!("../README.md");
 }

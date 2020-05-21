@@ -142,9 +142,9 @@ be dual licensed as above, without any additional terms or conditions.
 
 - Read https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html
 
-- Then, write more documenation.
+- Then, organize files and write more documenation.
 
-- [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy) with Travis CI.(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
+- Include Travis CI with [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy).(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
 
 - [Include some of them in README.md](https://github.com/dwyl/repo-badges)
 

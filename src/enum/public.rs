@@ -1,6 +1,7 @@
 /// Similar to `private_enum!` but public.
 ///
 /// # Example
+/// 
 /// ```
 /// # #[macro_use] extern crate publish;
 /// # fn main() {

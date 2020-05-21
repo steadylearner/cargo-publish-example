@@ -3,6 +3,7 @@
 /// Similar to `private_struct!` but public.
 ///
 /// # Example
+///
 /// ```
 /// # #[macro_use] extern crate publish;
 /// # fn main() {
@@ -14,7 +15,7 @@
 ///     }
 /// ); // It is lazy. Nothing is made yet.
 ///
-/// MessageBase(); // You have to call it to use the struct.
+/// MessageBase!(); // You have to call it to use the struct.
 /// let message = MessageBase {
 ///     text: "First Message".into(),
 /// };

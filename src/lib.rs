@@ -1,6 +1,9 @@
 #![doc(html_favicon_url = "https://avatars0.githubusercontent.com/u/32325099?s=460&u=cd848fc83d9739939a4ea2d38108c8bcee199109&v=4")]
 #![doc(html_logo_url = "https://avatars0.githubusercontent.com/u/32325099?s=460&u=cd848fc83d9739939a4ea2d38108c8bcee199109&v=4")]
 
+#![warn(missing_docs)]
+#![warn(missing_doc_code_examples)]
+
 //! [trybuild]: https://github.com/dtolnay/trybuild
 //! [macrotest]: https://github.com/eupn/macrotest
 //!

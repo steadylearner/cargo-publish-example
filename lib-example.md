@@ -1,3 +1,5 @@
+1. Documenation
+
 Returns the arguments which this program was started with (normally passed
 via the command line).
 
@@ -27,3 +29,15 @@ for argument in env::args() {
 ```
 
 [`args_os`]: ./fn.args_os.html
+
+2. Compile fail, ignore
+
+/// ```compile_fail
+/// let x = 5;
+/// x += 2; // shouldn't compile!
+/// ```
+
+/// ```ignore
+/// fn foo() {
+/// ```
+

@@ -1,6 +1,7 @@
 /// Use it to to create, extend and reuse fields in private enum.
 ///
 /// # Example
+/// 
 /// ```
 /// # #[macro_use] extern crate publish;
 /// # fn main() {

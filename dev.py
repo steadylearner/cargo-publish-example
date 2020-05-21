@@ -1,18 +1,23 @@
 import subprocess as cmd
 from watch import (
-    browsersync, 
+    browsersync,
     # withoutbrowsersync
 )
 
-package = "publish" # It should be the same to what defined in Cargo.toml
+package = "publish"  # It should be the same to what defined in Cargo.toml
 response = input(
-    "Cargo [f]ormat, [t]est, [d]ocumenation, [p]ublish or [l]int with clippy?\n")
+    "Cargo [f]ormat, [l]int with clippy, [t]est, [p]ublish or [d]ocumenation?\n")
 
 if response.startswith("f"):
     cp = cmd.run(f"cargo fmt", check=True, shell=True)
+elif response.startswith("l"):
+    cp = cmd.run(
+        f"cargo clippy --all-targets --all-features -- -D warnings", check=True, shell=True)
 elif response.startswith("t"):
     cp = cmd.run(f"cargo test pass", check=True, shell=True)
-elif response.startswith("d"):
+elif response.startswith("p"):
+    pass
+else: # Payload
     response = input(
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")
 
@@ -31,11 +36,6 @@ elif response.startswith("d"):
         # Payload
         cp = cmd.run(
             f"cargo test --doc", check=True, shell=True)
-elif response.startswith("p"):
-    pass
-else:
-    cp = cmd.run(
-        f"cargo clippy --all-targets --all-features -- -D warnings", check=True, shell=True)
 
 # Refer to them.
 # https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html

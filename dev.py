@@ -1,7 +1,7 @@
 import subprocess as cmd
 from watch import (
-    browsersync,
-    # withoutbrowsersync
+    automatically_reload_the_doc,
+    # manually_reload_the_doc,
 )
 
 package = "publish"  # It should be the same to what defined in Cargo.toml
@@ -23,9 +23,8 @@ else: # Payload
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")
 
     if response.startswith("w"):
-        # withoutbrowsersync(package)
-
-        browsersync(package)
+        automatically_reload_the_doc(package)
+        # manually_reload_the_doc(package)
 
     elif response.startswith("c"):
         cp = cmd.run(

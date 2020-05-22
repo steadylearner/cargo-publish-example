@@ -149,8 +149,6 @@ be dual licensed as above, without any additional terms or conditions.
 
 #### What left
 
-- Include Travis CI with [cargo fmt](https://github.com/rust-lang/rustfmt), [cargo clippy](https://github.com/rust-lang/rust-clippy).(How to use cargo install cargo-expand in it to use macrotest or exclude expand/ and pass/ and test only pass/ to save time?)
-
 - Exclude unnecessary file for the crate such as Python files, clippy.toml etc. Test it with a real crate name and code instead.
 
 - [Include some of them in README.md](https://github.com/dwyl/repo-badges)

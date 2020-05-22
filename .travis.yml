@@ -4,8 +4,7 @@ rust:
   - beta
   - nightly
 script:
-  - cargo test pass
-  - cargo test --doc
+  - cargo test
 jobs:
   allow_failures:
     - rust: nightly

@@ -8,17 +8,31 @@ from watch import (
 package = "publish"  # It should be the same to what defined in Cargo.toml
 response = input(
     "Cargo [f]ormat, [l]int with clippy, [t]est, [p]ublish or [d]ocumenation?\n")
+    # "Cargo [f]ormat and fix, [l]int with clippy, [t]est, [p]ublish or [d]ocumenation?\n")
 
 if response.startswith("f"):
     cp = cmd.run(f"cargo fmt", check=True, shell=True)
+    # cp = cmd.run(f"cargo fix", check=True, shell=True)
 elif response.startswith("l"):
     cp = cmd.run(
         f"cargo clippy --all-targets --all-features -- -D warnings", check=True, shell=True)
 elif response.startswith("t"):
     cp = cmd.run(f"cargo test pass", check=True, shell=True)
 elif response.startswith("p"):
+    # You should commit first with $python commit.py
     cp = cmd.run(f"cargo verify-project", check=True, shell=True)
-    # Dry run and login, token etc here?.
+    # https://doc.rust-lang.org/cargo/reference/publishing.html#packaging-a-crate
+    # login, token, publication etc should be manual.($cargo publish)
+
+    response = input(
+        "[t]est publication or [l]ist the created files for crates.io?\n")
+
+    if response.startswith("t"):
+        cp = cmd.run(
+            f"cargo publish --dry-run", check=True, shell=True)
+    else:
+        cp = cmd.run(
+            f"cargo package --list", check=True, shell=True)    
 else: # Payload
     response = input(
         "[w]atch, [c]reate, [r]ead or [t]est the documentation?\n")

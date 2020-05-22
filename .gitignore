@@ -3,4 +3,4 @@ Cargo.lock
 node_moudles/
 
 *.py
-__pycache__
+__pycache__/

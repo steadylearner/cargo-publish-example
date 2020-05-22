@@ -1,3 +1,6 @@
+// https://doc.rust-lang.org/1.7.0/book/using-rust-without-the-standard-library.html
+#![no_std]
+
 #![doc(html_favicon_url = "https://avatars0.githubusercontent.com/u/32325099?s=460&u=cd848fc83d9739939a4ea2d38108c8bcee199109&v=4")]
 #![doc(html_logo_url = "https://avatars0.githubusercontent.com/u/32325099?s=460&u=cd848fc83d9739939a4ea2d38108c8bcee199109&v=4")]
 

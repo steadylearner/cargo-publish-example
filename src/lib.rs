@@ -7,7 +7,7 @@
 //! [trybuild]: https://github.com/dtolnay/trybuild
 //! [macrotest]: https://github.com/eupn/macrotest
 //!
-//! Reuse(Struct, Enum)
+//! Publish(Struct, Enum)
 //! =============
 //!
 //! It provides functional macros to reuse fields for [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).

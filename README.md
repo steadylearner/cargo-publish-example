@@ -4,7 +4,7 @@
 [img_doc]: https://img.shields.io/badge/rust-documentation-blue.svg
 [doc]: https://docs.rs/doc-comment/
 
-Reuse(Struct, Enum)
+Publish(Struct, Enum)
 =============
 
 [![Build Status](https://travis-ci.org/steadylearner/cargo-publish-example.svg?branch=master)](https://travis-ci.org/steadylearner/cargo-publish-example)

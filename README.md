@@ -1,20 +1,17 @@
 [trybuild]: https://github.com/dtolnay/trybuild
 [macrotest]: https://github.com/eupn/macrotest
 
-[![Build Status](https://travis-ci.org/steadylearner/cargo-publish-example.svg?branch=master)](https://travis-ci.org/steadylearner/cargo-publish-example)
-
-[![img_crates][crate]]
-
-[![][img_doc]][doc]
-
-[img_crates]: https://img.shields.io/crates/v/doc-comment.svg
-[crates]: https://crates.io/crates/doc-comment
-
 [img_doc]: https://img.shields.io/badge/rust-documentation-blue.svg
 [doc]: https://docs.rs/doc-comment/
 
 Reuse(Struct, Enum)
 =============
+
+[![Build Status](https://travis-ci.org/steadylearner/cargo-publish-example.svg?branch=master)](https://travis-ci.org/steadylearner/cargo-publish-example)
+[![Image Crate](https://img.shields.io/crates/v/doc-comment.svg)](https://crates.io/crates/doc-comment)
+[![Image Doc](https://img.shields.io/badge/rust-documentation-blue.svg)](https://docs.rs/doc-comment/
+)
+[![Dependency Status](https://david-dm.org/dwyl/esta.svg)](https://david-dm.org/dwyl/esta)
 
 It provides functional macros to reuse fields for [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).
 

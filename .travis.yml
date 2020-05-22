@@ -4,8 +4,10 @@ rust:
   - beta
   - nightly
 script:
+  - cargo fmt -- --check
+  - cargo clippy --all-targets --all-features -- -D warnings
   - cargo test pass
-  - cargo doc --test
+  - cargo test --doc
 jobs:
   allow_failures:
     - rust: nightly

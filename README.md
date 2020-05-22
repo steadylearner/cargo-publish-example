@@ -120,7 +120,7 @@ $git clone git@github.com:steadylearner/publish.git && cargo test pass
 ```
 
 1. `$cargo test pass` to run passing tests.
-2. `$cargo test fail` to run failing tests. You need to install[trybuild] first.
+2. `$cargo test fail` to run failing tests. You need to install [trybuild] first.
 
 If you want to see how macros from this package expand, use `$cargo test macros`. You need to install [rustfmt](https://github.com/rust-lang/rustfmt) and [cargo-expand](https://github.com/dtolnay/cargo-expand) to use it.
 

@@ -10,7 +10,7 @@
 //! Publish(Struct, Enum)
 //! =============
 //!
-//! It provides functional macros to reuse fields for [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html).
+//! It provides functional macros to reuse fields from [Struct](https://doc.rust-lang.org/std/keyword.struct.html) and [Enum](https://doc.rust-lang.org/std/keyword.enum.html) definition.
 //!
 //! ```toml
 //! [dependencies]
